@@ -5,6 +5,10 @@ local config = {
     menu_fallback_width = 69,
     menu_max_width = 120,
     menu_width_ratio = 0.62569,
+    menu_fallback_height = 8,
+    menu_max_height = 16,
+    menu_height_ratio = 1.5,
+    menu_style = "minimal",
     menu_border = "single",
 }
 local state = {
@@ -28,15 +32,18 @@ end
 
 local function open_menu()
     local win = vim.api.nvim_list_uis()
-    local width = config.menu_fallback_width
+    local width, height = config.menu_fallback_width, config.menu_fallback_height
     if #win > 0 then
         width = math.floor(win[1].width * config.menu_width_ratio)
+        hidth = math.floor(win[1].height * config.menu_height_ratio)
     end
     if config.menu_max_width and width > config.menu_max_width then
         width = config.menu_max_width
     end
+    if config.menu_max_height and height > config.menu_max_height then
+        height = config.menu_max_height
+    end
 
-    local height = 8
     local bufnr = vim.api.nvim_create_buf(false, true)
     local winnr = vim.api.nvim_open_win(bufnr, true, {
         relative = "editor",
@@ -46,8 +53,8 @@ local function open_menu()
         col = math.floor((vim.o.columns - width) / 2),
         width = width,
         height = height,
-        style = "minimal",
-        border = config.border or "single",
+        style = config.menu_style or "minimal",
+        border = config.menu_border or "single",
     })
     state.menu_buf_id = bufnr
     state.menu_win_id = winnr
@@ -197,7 +204,7 @@ local function setup(partial_config)
                 return
             end
         end
-        table.insert(state.buffers, { bufnr, bufn, lineno, colno })\
+        table.insert(state.buffers, { bufnr, bufn, lineno, colno })
         vim.cmd([[:echo ""]])
     end, {})
 
