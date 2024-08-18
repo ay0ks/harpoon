@@ -5,12 +5,16 @@ local config = {
         title = {
             align = "left",
         },
-        fallback_width = 69,
-        max_width = 120,
-        width_ratio = 0.62569,
-        fallback_height = 8,
-        max_height = 16,
-        height_ratio = 0.4294967296,
+        width = {
+            fallback = 69,
+            max = 120,
+            ratio = 0.62569,
+        },
+        height = {
+            fallback = 8,
+            max = 16,
+            ratio = 0.4294967296,
+        },
         style = "minimal",
         border = "single",
         footer = {
