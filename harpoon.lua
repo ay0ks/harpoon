@@ -7,7 +7,7 @@ local config = {
     menu_width_ratio = 0.62569,
     menu_fallback_height = 8,
     menu_max_height = 16,
-    menu_height_ratio = 1.5,
+    menu_height_ratio = 0.4294967296,
     menu_style = "minimal",
     menu_border = "single",
 }
