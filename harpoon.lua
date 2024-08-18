@@ -206,27 +206,6 @@ local function setup(partial_config)
         toggle_menu()
     end, {})
 
-    vim.api.nvim_create_autocmd({ "WinNew" }, {
-        group = group,
-        pattern = "*",
-        callback = function(ev)
-        end,
-    })
-
-    vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-        group = group,
-        pattern = "*",
-        callback = function(ev)
-        end,
-    })
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufLeave" }, {
-        group = group,
-        pattern = "*",
-        callback = function(ev)
-        end,
-    })
-
     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
         group = group,
         pattern = "*",
