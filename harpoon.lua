@@ -133,7 +133,6 @@ local function open_menu()
             })
         end
         vim.api.nvim_set_current_buf(bufnr)
-        -- if buffer line count is at least equal to lineno and colno
         local lineno_ = vim.api.nvim_buf_line_count(bufnr)
         if lineno_ >= lineno and #vim.api.nvim_buf_get_lines(bufnr, lineno_ - 1, lineno_, false)[1] >= colno then
             vim.api.nvim_win_set_cursor(0, { lineno, colno })
