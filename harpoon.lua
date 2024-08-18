@@ -186,6 +186,8 @@ toggle_menu = function()
 end
 
 local function setup(partial_config)
+    vim.tbl_deep_extend("force", config, partial_config)
+    
     vim.api.nvim_create_user_command("HarpoonAddBuffer", function()
         local bufnr = vim.api.nvim_get_current_buf()
         local bufn = vim.api.nvim_buf_get_name(bufnr)
