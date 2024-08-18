@@ -1,15 +1,23 @@
 local group = vim.api.nvim_create_augroup("Harpoon", {})
 
 local config = {
-    title_align = "left",
-    menu_fallback_width = 69,
-    menu_max_width = 120,
-    menu_width_ratio = 0.62569,
-    menu_fallback_height = 8,
-    menu_max_height = 16,
-    menu_height_ratio = 0.4294967296,
-    menu_style = "minimal",
-    menu_border = "single",
+    poupup = {
+        title = {
+            align = "left",
+        },
+        fallback_width = 69,
+        max_width = 120,
+        width_ratio = 0.62569,
+        fallback_height = 8,
+        max_height = 16,
+        height_ratio = 0.4294967296,
+        style = "minimal",
+        border = "single",
+        footer = {
+            enabled = true,
+            align = "right",
+        },
+    }
 }
 local state = {
     menu_open = false,
